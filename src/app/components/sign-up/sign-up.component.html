@@ -1,0 +1,79 @@
+<!-- material -->
+<div>
+  <h2>Sign Up</h2>
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        [formControl]="emailFormControl"
+        [errorStateMatcher]="matcher"
+        placeholder="name@example.com"
+        #userEmail
+        required
+      />
+
+      <mat-error
+        *ngIf="
+          emailFormControl.hasError('email') &&
+          !emailFormControl.hasError('required')
+        "
+      >
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        [formControl]="emailFormControl"
+        [errorStateMatcher]="matcher"
+        placeholder="Password"
+        #userPwd
+        required
+      />
+
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="authService.SignUp(userEmail.value, userPwd.value)"
+      >
+        Sign Up
+      </button>
+    </div>
+    <br />
+    <!-- <a mat-raised-button routerLink=".">Link</a> -->
+
+    <div>Or</div>
+
+    <!-- Continue with Google -->
+    <div>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="authService.GoogleAuth()"
+      >
+        Continue with Google
+      </button>
+    </div>
+
+    <div class="redirectToLogin">
+      <span
+        >Already have an account? <a [routerLink]="['/sign-in']">Log
+        In</a></span
+      >
+    </div>
+  </form>
+</div>

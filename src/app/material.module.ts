@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
@@ -17,6 +18,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+
 @NgModule({
    imports: [
       CommonModule,
@@ -60,4 +62,5 @@ import { MatTooltipModule } from '@angular/material/tooltip';
       MatDatepickerModule,
    ]
 })
+
 export class AngularMaterialModule { }
