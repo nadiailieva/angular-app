@@ -1,5 +1,12 @@
 # AngularApp
 
+Book store application contains a list of books and details about them. Allows you to add and edit / delete a book by a registered user. Users can register by email or using their google accounts. The following technologies were used for the implementation of the project - Angular, Firebase and Angular Material.
+
+
+
+
+# AngularApp
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
 ## Development server
