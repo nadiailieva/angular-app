@@ -10,6 +10,8 @@ import { BookListComponent } from './components/book-list/book-list.component';
 import { EditBookComponent } from './components/edit-book/edit-book.component';
 // route guard
 import { AuthGuard } from './shared/guard/auth.guard';
+//404
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   //{ path: '', pathMatch: 'full', redirectTo: 'add-book' },
@@ -22,6 +24,8 @@ const routes: Routes = [
   { path: 'add-book', component: AddBookComponent, canActivate: [AuthGuard] },
   { path: 'edit-book/:id', component: EditBookComponent, canActivate: [AuthGuard] },
   { path: 'books-list', component: BookListComponent },
+  { path: '**', pathMatch: 'full', 
+        component: PageNotFoundComponent },
 ];
 
 @NgModule({
