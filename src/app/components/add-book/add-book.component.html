@@ -7,11 +7,11 @@
 <!-- Book form -->
 <div class="inner-wrapper">
   <form
-    [formGroup]="bookForm"
-    (ngSubmit)="submitBook()"
+    [formGroup]="bookForm"  
+    (ngSubmit)='submitBook()'  
     #resetBookForm="ngForm"
     novalidate
-  >
+  ><!--(ngSubmit)="submitBook()"-->
     <!-- Left block -->
     <mat-card>
       <div class="controlers-wrapper">
@@ -109,7 +109,7 @@
         </div>
 
         <!-- Add languages -->
-        <mat-form-field class="multiple-items">
+        <!-- <mat-form-field class="multiple-items">
           <mat-chip-list #chipList>
             <mat-chip
               *ngFor="let lang of languageArray"
@@ -134,7 +134,7 @@
           >
             info
           </i>
-        </mat-form-field>
+        </mat-form-field> -->
       </div>
     </mat-card>
 
@@ -143,7 +143,7 @@
       <div class="full-wrapper button-wrapper">
         <div class="button-wrapper">
           <button mat-flat-button color="accent">Submit</button>
-          <button mat-flat-button color="war" (click)="resetForm()">
+          <button type="button" mat-flat-button color="war" (click)="resetForm()">
             Clear
           </button>
         </div>

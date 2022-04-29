@@ -1,8 +1,7 @@
 <!-- Toolbar -->
 <mat-toolbar color="primary" class="header">
   <div>Book Store</div>
-  <span class="nav-tool-items">
-    <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
+  <span class="nav-tool-items" *ngIf="authService.isLoggedIn && authService.userData as user">{{user.email}}
   </span>
 </mat-toolbar>
 
@@ -16,16 +15,16 @@
     
   ><!--[fixedTopGap]-->
     <mat-nav-list>
-      <a mat-list-item routerLinkActive="active" routerLink="/add-book">
+      <a *ngIf="authService.isLoggedIn" mat-list-item routerLinkActive="active" routerLink="/add-book">
         <mat-icon>add</mat-icon> Add Book
       </a>
       <a mat-list-item routerLinkActive="active" routerLink="/books-list">
         <mat-icon>view_list</mat-icon> View Books
       </a>
-      <a mat-list-item routerLinkActive="active" routerLink="/sign-in">
+      <a *ngIf="!authService.isLoggedIn" mat-list-item routerLinkActive="active" routerLink="/sign-in">
         <mat-icon>launch</mat-icon> Sign In
       </a>
-      <a mat-list-item routerLinkActive="active" routerLink="/dashboard">
+      <a *ngIf="authService.isLoggedIn" mat-list-item routerLinkActive="active" routerLink="/dashboard">
         <mat-icon>face</mat-icon> Dashboard <!--info home perm_identity-->
       </a>
     </mat-nav-list>

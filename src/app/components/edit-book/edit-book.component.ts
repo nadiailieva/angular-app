@@ -6,9 +6,9 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { BookService } from './../../shared/book.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-export interface Language {
-  name: string;
-}
+// export interface Language {
+//   name: string;
+// }
 
 @Component({
   selector: 'app-edit-book',
@@ -20,7 +20,7 @@ export class EditBookComponent implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
-  languageArray: Language[] = [];
+  //languageArray: Language[] = [];
   @ViewChild('chipList') chipList;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   selectedBindingType: string;
@@ -49,8 +49,9 @@ export class EditBookComponent implements OnInit {
       .GetBook(id)
       .valueChanges()
       .subscribe((data) => {
-        this.languageArray = data.languages;
         this.editBookForm.setValue(data);
+        //this.languageArray = data.languages;
+        
       });
   }
 
@@ -63,12 +64,12 @@ export class EditBookComponent implements OnInit {
       publication_date: ['', [Validators.required]],
       binding_type: ['', [Validators.required]],
       in_stock: ['Yes'],
-      languages: [''],
+      //languages: [''],
     });
   }
 
   /* Add language */
-  add(event: MatChipInputEvent): void {
+  /*add(event: MatChipInputEvent): void {
     var input: any = event.input;
     var value: any = event.value;
     // Add language
@@ -79,15 +80,15 @@ export class EditBookComponent implements OnInit {
     if (input) {
       input.value = '';
     }
-  }
+  }*/
 
   /* Remove language */
-  remove(language: any): void {
-    const index = this.languageArray.indexOf(language);
-    if (index >= 0) {
-      this.languageArray.splice(index, 1);
-    }
-  }
+  // remove(language: any): void {
+  //   const index = this.languageArray.indexOf(language);
+  //   if (index >= 0) {
+  //     this.languageArray.splice(index, 1);
+  //   }
+  // }
 
   /* Get errors */
   public handleError = (controlName: string, errorName: string) => {

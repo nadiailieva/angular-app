@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'add-book', component: AddBookComponent, canActivate: [AuthGuard] },
-  { path: 'edit-book/:id', component: EditBookComponent, canActivate: [AuthGuard] },
+  { path: 'edit-book/:id', component: EditBookComponent },
   { path: 'books-list', component: BookListComponent },
   { path: '**', pathMatch: 'full', 
         component: PageNotFoundComponent },

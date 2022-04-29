@@ -5,10 +5,10 @@
   </a>
 </nav> -->
 <!-- Sidebar navigation -->
-<div class="container-fluid">
+ <div class="container-fluid">
   <div class="row">
-    <nav class="col-md-2 d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
+  <!--  <nav class="col-md-2 d-md-block bg-light sidebar"> -->
+      <div class="sidebar-sticky" style="text-align: -webkit-right; text-align: -moz-right;">
         <!-- Calling SignOut() Api from AuthService -->
         <section>
           <div class="example-button-row">
@@ -23,7 +23,7 @@
         </section>
 
       </div>
-    </nav>
+    <!-- </nav> -->
     <!-- Main content -->
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <div class="inner-adjust">
@@ -32,12 +32,12 @@
         </div>
         <!-- Show user data when logged in -->
         <div class="row" *ngIf="authService.userData as user">
-          <div class="col-md-12">
+          <div class="col-md-6">
             <div class="media">
               <img
                 class="align-self-start mr-5 img-thumbnail rounded-circle"
                 src="{{
-                  user.photoURL ? user.photoURL : '/assets/dummy-user.png'
+                  user.photoURL ? user.photoURL : '/assets/profile.png'
                 }}"
                 alt="{{ user.displayName }}"
               />

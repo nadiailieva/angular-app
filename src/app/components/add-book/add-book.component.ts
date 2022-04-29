@@ -1,12 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { MatChipInputEvent } from '@angular/material/chips';
+//import { MatChipInputEvent } from '@angular/material/chips';
 import { BookService } from './../../shared/book.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-export interface Language {
-  name: string;
-}
+// export interface Language {
+//   name: string;
+// }
 
 @Component({
   selector: 'app-add-book',
@@ -18,8 +19,8 @@ export class AddBookComponent implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
-  languageArray: Language[] = [];
-  @ViewChild('chipList') chipList;
+  //languageArray: Language[] = [];
+ // @ViewChild('chipList') chipList;
   @ViewChild('resetBookForm') myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   selectedBindingType: string;
@@ -37,15 +38,15 @@ export class AddBookComponent implements OnInit {
     this.submitBookForm();
   }
 
-  constructor(public fb: FormBuilder, private bookApi: BookService) {}
+  constructor(public fb: FormBuilder, private bookApi: BookService, private router: Router) {}
 
   /* Remove dynamic languages */
-  remove(language: Language): void {
-    const index = this.languageArray.indexOf(language);
-    if (index >= 0) {
-      this.languageArray.splice(index, 1);
-    }
-  }
+  // remove(language: Language): void {
+  //   const index = this.languageArray.indexOf(language);
+  //   if (index >= 0) {
+  //     this.languageArray.splice(index, 1);
+  //   }
+  // }
 
   /* Reactive book form */
   submitBookForm() {
@@ -56,7 +57,7 @@ export class AddBookComponent implements OnInit {
       publication_date: ['', [Validators.required]],
       binding_type: ['', [Validators.required]],
       in_stock: ['Yes'],
-      languages: [this.languageArray],
+      //languages: [this.languageArray],
     });
   }
 
@@ -66,7 +67,7 @@ export class AddBookComponent implements OnInit {
   };
 
   /* Add dynamic languages */
-  add(event: MatChipInputEvent): void {
+  /*add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
     // Add language
@@ -77,7 +78,7 @@ export class AddBookComponent implements OnInit {
     if (input) {
       input.value = '';
     }
-  }
+  }*/
 
   /* Date */
   formatDate(e) {
@@ -89,7 +90,7 @@ export class AddBookComponent implements OnInit {
 
   /* Reset form */
   resetForm() {
-    this.languageArray = [];
+   // this.languageArray = [];
     this.bookForm.reset();
     Object.keys(this.bookForm.controls).forEach((key) => {
       this.bookForm.controls[key].setErrors(null);
@@ -99,8 +100,11 @@ export class AddBookComponent implements OnInit {
   /* Submit book */
   submitBook() {
     if (this.bookForm.valid) {
-      this.bookApi.AddBook(this.bookForm.value);
+      console.log("submit book");
+      this.bookApi.AddBook(this.bookForm.value);      
       this.resetForm();
+      this.router.navigate(['books-list']);
     }
   }
+
 }

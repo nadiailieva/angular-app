@@ -1,5 +1,6 @@
 import { Component, ViewChild, HostListener, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { AuthService } from "./shared/services/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,14 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 
 export class AppComponent {
+
   opened = true;
   @ViewChild('sidenav') sidenav: MatSidenav;
 
+  constructor(
+    public authService: AuthService
+  ) { }
+  
   ngOnInit() {
     if (window.innerWidth < 768) {
       //this.sidenav.fixedTopGap = 55;

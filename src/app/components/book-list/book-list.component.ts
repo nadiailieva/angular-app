@@ -3,6 +3,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { BookService } from './../../shared/book.service';
+import { AuthService } from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-book-list',
@@ -19,10 +20,11 @@ export class BookListComponent {
     'author_name',
     'publication_date',
     'in_stock',
+    'binding_type',
     'action',
   ];
 
-  constructor(private bookApi: BookService) {
+  constructor(private bookApi: BookService, public authService: AuthService) {
     this.bookApi
       .GetBookList()
       .snapshotChanges()
