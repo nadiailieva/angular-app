@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../shared/services/auth.service";
-//from material
 import {MatButtonModule} from '@angular/material/button';
 
 @Component({

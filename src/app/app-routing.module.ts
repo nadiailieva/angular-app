@@ -8,13 +8,12 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { EditBookComponent } from './components/edit-book/edit-book.component';
-// route guard
+
 import { AuthGuard } from './shared/guard/auth.guard';
-//404
+
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  //{ path: '', pathMatch: 'full', redirectTo: 'add-book' },
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
   { path: 'sign-in', component: SignInComponent },
   { path: 'register-user', component: SignUpComponent },

@@ -16,13 +16,11 @@ export class AppComponent {
   constructor(
     public authService: AuthService
   ) { }
-  
+
   ngOnInit() {
     if (window.innerWidth < 768) {
-      //this.sidenav.fixedTopGap = 55;
       this.opened = false;
     } else {
-      //this.sidenav.fixedTopGap = 55;
       this.opened = true;
     }
   }
@@ -30,10 +28,8 @@ export class AppComponent {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     if (event.target.innerWidth < 768) {
-     // this.sidenav.fixedTopGap = 55;
       this.opened = false;
     } else {
-     // this.sidenav.fixedTopGap = 55;
       this.opened = true;
     }
   }

@@ -21,7 +21,7 @@ export class EditBookComponent implements OnInit {
   removable = true;
   addOnBlur = true;
   //languageArray: Language[] = [];
-  @ViewChild('chipList') chipList;
+  //@ViewChild('chipList') chipList;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   selectedBindingType: string;
   editBookForm: FormGroup;
